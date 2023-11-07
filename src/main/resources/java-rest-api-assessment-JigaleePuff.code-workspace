@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../.."
+		},
+		{
+			"path": "../../../../../../../../OneDrive/Desktop"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic",
+		"githubPullRequests.ignoredPullRequestBranches": [
+			"main"
+		],
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
+}

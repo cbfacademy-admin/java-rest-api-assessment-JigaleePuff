@@ -2,7 +2,7 @@ package com.cbfacademy.apiassessment;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -21,8 +21,6 @@ class AppTests {
 
 	private URL base;
 
-	@Autowired
-	private TestRestTemplate restTemplate;
 
 	@BeforeEach
 	public void setUp() throws Exception {
