@@ -1,14 +1,9 @@
 package com.cbfacademy.apiassessment.Controllers;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.*;
-
-import com.cbfacademy.apiassessment.Classes.WaterProduction;
+import com.cbfacademy.apiassessment.DTOFiles.WaterProductionDTO;
 import com.cbfacademy.apiassessment.Services.WaterProductionService;
 
-
-// Get all the data in the database
 @RestController
 @RequestMapping("/water-production")
 public class WaterProductionController {
@@ -18,18 +13,14 @@ public class WaterProductionController {
         this.waterProductionService = waterProductionService;
     }
 
-
-    
     @PostMapping("/calculate")
     public WaterProductionDTO calculateWaterProduction(@RequestBody WaterProductionDTO waterProductionDTO) {
-        // Call the service method to perform calculations or database operations
         return waterProductionService.calculateWaterProduction(waterProductionDTO);
-        }
-        
-      
-       
-    
+    }
+
+    // Define other endpoints as needed
 }
+
  
 
 

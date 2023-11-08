@@ -1,9 +1,8 @@
-package com.cbfacademy.apiassessment.Services;
+package com.cbfacademy.apiassessment.RepoInterfaces;
 
-public interface WaterProductionRepository {
+import org.springframework.data.repository.CrudRepository;
+import com.cbfacademy.apiassessment.Classes.WaterProduction;
 
-}
-public interface WaterProductionService {
-    WaterProductionDTO calculateWaterProduction(WaterProductionDTO waterProductionDTO);
-    // Other methods as needed
+public interface WaterProductionRepository extends CrudRepository<WaterProduction, Long> {
+    // You can add custom query methods if needed
 }

@@ -1,15 +1,11 @@
 package com.cbfacademy.apiassessment.Classes;
 
-import java.io.Serializable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
-@Entity
-public class WaterProduction implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@jakarta.persistence.Entity
+public class WaterProduction {
+    @jakarta.persistence.Id
+    @jakarta.persistence.GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private double sugarCaneWeight;
@@ -19,13 +15,83 @@ public class WaterProduction implements Serializable {
     private double waterProductionPercentage;
     private double totalPrice;
 
-    public WaterProduction save(WaterProduction waterProduction) {
-        return null; // Implement your logic here
+    // Constructors
+
+    public WaterProduction() {
+        // Default constructor
+    }
+
+    public WaterProduction(
+        double sugarCaneWeight,
+        double waterProduced,
+        double aquaBotanicalWaterProduced,
+        double annualWaterProduction,
+        double waterProductionPercentage,
+        double totalPrice
+    ) {
+        this.sugarCaneWeight = sugarCaneWeight;
+        this.waterProduced = waterProduced;
+        this.aquaBotanicalWaterProduced = aquaBotanicalWaterProduced;
+        this.annualWaterProduction = annualWaterProduction;
+        this.waterProductionPercentage = waterProductionPercentage;
+        this.totalPrice = totalPrice;
     }
 
     // Getters and setters
 
-    // Constructors
+    public Long getId() {
+        return id;
+    }
 
-    // Additional fields, constructors, and methods as needed
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public double getSugarCaneWeight() {
+        return sugarCaneWeight;
+    }
+
+    public void setSugarCaneWeight(double sugarCaneWeight) {
+        this.sugarCaneWeight = sugarCaneWeight;
+    }
+
+    public double getWaterProduced() {
+        return waterProduced;
+    }
+
+    public void setWaterProduced(double waterProduced) {
+        this.waterProduced = waterProduced;
+    }
+
+    public double getAquaBotanicalWaterProduced() {
+        return aquaBotanicalWaterProduced;
+    }
+
+    public void setAquaBotanicalWaterProduced(double aquaBotanicalWaterProduced) {
+        this.aquaBotanicalWaterProduced = aquaBotanicalWaterProduced;
+    }
+
+    public double getAnnualWaterProduction() {
+        return annualWaterProduction;
+    }
+
+    public void setAnnualWaterProduction(double annualWaterProduction) {
+        this.annualWaterProduction = annualWaterProduction;
+    }
+
+    public double getWaterProductionPercentage() {
+        return waterProductionPercentage;
+    }
+
+    public void setWaterProductionPercentage(double waterProductionPercentage) {
+        this.waterProductionPercentage = waterProductionPercentage;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 }
