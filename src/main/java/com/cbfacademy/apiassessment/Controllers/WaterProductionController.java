@@ -1,25 +1,26 @@
-package com.cbfacademy.apiassessment.Controllers;
+// package com.cbfacademy.apiassessment.Controllers;
 
-import org.springframework.web.bind.annotation.*;
-import com.cbfacademy.apiassessment.DTOFiles.WaterProductionDTO;
-import com.cbfacademy.apiassessment.Services.WaterProductionService;
+// import org.springframework.web.bind.annotation.*;
+// import com.cbfacademy.apiassessment.DTOFiles.WaterProductionDTO;
+// import com.cbfacademy.apiassessment.Services.WaterProductionService;
 
-@RestController
-@RequestMapping("/water-production")
-public class WaterProductionController {
-    private final WaterProductionService waterProductionService;
+// @RestController
+// @RequestMapping("/water-production")
+// public class WaterProductionController {
+//     private final WaterProductionService waterProductionService;
 
-    public WaterProductionController(WaterProductionService waterProductionService) {
-        this.waterProductionService = waterProductionService;
-    }
+//     @GetMapping("/retrieve-data")
+//     public WaterProductionController(WaterProductionService waterProductionService) {
+//         this.waterProductionService = waterProductionService;
+//     }
 
-    @PostMapping("/calculate")
-    public WaterProductionDTO calculateWaterProduction(@RequestBody WaterProductionDTO waterProductionDTO) {
-        return waterProductionService.calculateWaterProduction(waterProductionDTO);
-    }
+//     @PostMapping("/calculate")
+//     public WaterProductionDTO calculateWaterProduction(@RequestBody WaterProductionDTO waterProductionDTO) {
+//         return waterProductionService.calculateWaterProduction(waterProductionDTO);
+//     }
 
     // Define other endpoints as needed
-}
+
 
  
 

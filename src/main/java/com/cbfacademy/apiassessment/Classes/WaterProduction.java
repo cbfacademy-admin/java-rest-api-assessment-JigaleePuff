@@ -1,11 +1,10 @@
 package com.cbfacademy.apiassessment.Classes;
 
-import jakarta.persistence.GenerationType;
 
-@jakarta.persistence.Entity
+
+
 public class WaterProduction {
-    @jakarta.persistence.Id
-    @jakarta.persistence.GeneratedValue(strategy = GenerationType.IDENTITY)
+  
     private Long id;
 
     private double sugarCaneWeight;
