@@ -1,8 +1,6 @@
 package com.cbfacademy.apiassessment.Classes;
 
 
-
-
 public class WaterProduction {
   
     private Long id;
@@ -10,8 +8,6 @@ public class WaterProduction {
     private double sugarCaneWeight;
     private double waterProduced;
     private double aquaBotanicalWaterProduced;
-    private double annualWaterProduction;
-    private double waterProductionPercentage;
     private double totalPrice;
 
     // Constructors
@@ -24,15 +20,11 @@ public class WaterProduction {
         double sugarCaneWeight,
         double waterProduced,
         double aquaBotanicalWaterProduced,
-        double annualWaterProduction,
-        double waterProductionPercentage,
         double totalPrice
     ) {
         this.sugarCaneWeight = sugarCaneWeight;
         this.waterProduced = waterProduced;
         this.aquaBotanicalWaterProduced = aquaBotanicalWaterProduced;
-        this.annualWaterProduction = annualWaterProduction;
-        this.waterProductionPercentage = waterProductionPercentage;
         this.totalPrice = totalPrice;
     }
 
@@ -53,6 +45,11 @@ public class WaterProduction {
     public void setSugarCaneWeight(double sugarCaneWeight) {
         this.sugarCaneWeight = sugarCaneWeight;
     }
+    public double computeWaterContent() {
+        // Assuming a simple calculation for water content based on sugar cane weight
+        
+        return sugarCaneWeight * 0.7;  // 70% water content for example
+    }
 
     public double getWaterProduced() {
         return waterProduced;
@@ -70,22 +67,6 @@ public class WaterProduction {
         this.aquaBotanicalWaterProduced = aquaBotanicalWaterProduced;
     }
 
-    public double getAnnualWaterProduction() {
-        return annualWaterProduction;
-    }
-
-    public void setAnnualWaterProduction(double annualWaterProduction) {
-        this.annualWaterProduction = annualWaterProduction;
-    }
-
-    public double getWaterProductionPercentage() {
-        return waterProductionPercentage;
-    }
-
-    public void setWaterProductionPercentage(double waterProductionPercentage) {
-        this.waterProductionPercentage = waterProductionPercentage;
-    }
-
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -94,3 +75,4 @@ public class WaterProduction {
         this.totalPrice = totalPrice;
     }
 }
+

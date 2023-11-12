@@ -1,5 +1,12 @@
 package com.cbfacademy.apiassessment.RepoInterfaces;
 
-public interface WaterProductionRepository  {
-    // You can add custom query methods if needed
+import java.util.List;
+
+import com.cbfacademy.apiassessment.Classes.WaterProduction;
+
+public interface WaterProductionRepository 
+ { List<WaterProduction> computeWaterContent(double weight);
+    // Other methods as needed
 }
+   
+

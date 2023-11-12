@@ -21,6 +21,7 @@ public class WaterProductionService {
 
     public List<WaterProduction> getAllProducts() {
         List<WaterProduction> products = new ArrayList<>();
+        //another name for "products" this case meaning the data in waterproduction.json
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(this.jsonFilePath))) {
       
@@ -53,7 +54,6 @@ public class WaterProductionService {
     }
 }
 
-
 // import java.io.IOException;
 // import java.nio.file.Files;
 // import java.nio.file.Paths;
@@ -75,6 +75,42 @@ public class WaterProductionService {
 //     }
 // }
 
+// now im calling the compute water content to get the amount of aquabotanical waters produced, updated json file
+
+
+package com.cbfacademy.apiassessment.Services;
+
+import com.cbfacademy.apiassessment.Classes.WaterProduction;
+import com.cbfacademy.apiassessment.RepoInterfaces.WaterProductionRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class WaterProductionService implements WaterProductionRepository {
+
+    private final String jsonFilePath = "src/main/resources/Data/WaterProductionData.json";
+    private final Gson gson = new Gson();
+
+    @Override
+    public List<WaterProduction> computeWaterContent(double weight) {
+        List<WaterProduction> waterProductions = getAllProducts();
+
+        // Perform the computation for water content based on the provided weight
+        for (WaterProduction waterProduction : waterProductions) {
+            double waterContent = waterProduction.getSugarCaneWeight() * 0.7;  // Example calculation
+            waterProduction.setWaterProduced(waterContent);
+        }
+
+        // You can return the modified list or update the database as needed
+        return waterProductions;
+    }
+
+    // Other methods as needed
+
+    // Existing methods like getAllProducts and saveProducts
+    // ...
+}
 
 
 
@@ -83,44 +119,4 @@ public class WaterProductionService {
 
 
 
-// package com.cbfacademy.apiassessment.Services;
 
-// import org.springframework.stereotype.Service;
-// import com.cbfacademy.apiassessment.Classes.WaterProduction;
-// import com.cbfacademy.apiassessment.DTOFiles.WaterProductionDTO;
-// import com.cbfacademy.apiassessment.Repositories.WaterProductionRepository;
-
-// @Service
-// public class WaterProductionService {
-//     private final WaterProductionService waterProductionRepository;
-
-//     public WaterProductionService(WaterProductionService waterProductionRepository) {
-//         this.waterProductionRepository = waterProductionRepository;
-//     }
-
-//     public WaterProduction saveWaterProduction(WaterProduction waterProduction) {
-//         return waterProductionRepository.save(waterProduction);
-//     }
-
-//     public WaterProductionDTO calculateWaterProduction(WaterProductionDTO waterProductionDTO2) {
-//         WaterProductionDTO waterProductionDTO = new WaterProductionDTO();
-
-//         // Implement the logic to calculate water production here
-//         // For example:
-//         double sugarCaneWeight = waterProductionDTO2.getSugarCaneWeight();
-//         double waterProduced = sugarCaneWeight * 0.1; // Example calculation
-//         waterProductionDTO.setSugarCaneWeight(sugarCaneWeight);
-//         waterProductionDTO.setWaterProduced(waterProduced);
-
-//         // You can perform database operations, calculations, and other business logic
-//         // Replace with the actual calculation and data storage
-
-//         return waterProductionDTO;
-//     }
-
-//     public WaterProductionDTO calculateWaterProduction(WaterProductionDTO waterProductionDTO) {
-//         return null;
-//     }
-
-//     // Add other service methods as needed
-// }
