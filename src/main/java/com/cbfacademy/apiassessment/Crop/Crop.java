@@ -24,7 +24,7 @@ public class Crop {
 
     @Transient
     private Double cost;
-    private Double purchaseCost;
+    private Double numberOfAquabotanicalBottles;
 
     //    Null Constructor
     public Crop() {
@@ -85,11 +85,13 @@ public class Crop {
         return getWaterContentPerGram() * getCostPerLitre();
     }
 
-    public Double getPurchaseCost(){
-        return purchaseCost;
+    public Double getnumberOfAquabotanicalBottles(){
+        return numberOfAquabotanicalBottles;
     }
 
-    public void setPurchaseCost(Double purchaseCost) {this.purchaseCost = purchaseCost;}
+    public void setNumberOfAquabotanicalBottles(Double numberOfAquabotanicalBottles) {
+        this.numberOfAquabotanicalBottles =  numberOfAquabotanicalBottles;
+    }
 
     @Override
     public String toString() {

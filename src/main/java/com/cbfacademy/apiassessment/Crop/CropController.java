@@ -30,9 +30,9 @@ public class CropController {
     public void updateCrop(
             @PathVariable("cropId") Long cropId,
             @RequestParam(required = false) Double costPerLitre,
-            @RequestParam(required = false) Double purchaseWeight,
+            @RequestParam(required = false) Double numberOfCrop,
             @RequestParam(required = false) Double waterContentPerGram){
-        cropService.updateCrop(cropId, costPerLitre, purchaseWeight, waterContentPerGram);
+        cropService.updateCrop(cropId, costPerLitre, numberOfCrop, waterContentPerGram);
     }
 
     @DeleteMapping(path = "{cropId}")

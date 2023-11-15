@@ -40,8 +40,9 @@ public class CropService {
 
     }
 
+
     @Transactional
-    public void updateCrop(Long cropId, Double costPerLitre, Double purchaseWeight, Double waterContentPerGram) {
+    public void updateCrop(Long cropId, Double costPerLitre, Double numberOfCrop, Double waterContentPerGram) {
         Crop crop = cropRepository.findById(cropId).orElseThrow(() -> new IllegalStateException(
                 "Crop with the Id " + cropId + "not in database"
         ));
@@ -56,6 +57,6 @@ public class CropService {
             crop.setCostPerLitre(costPerLitre);
         }
 
-        crop.setPurchaseCost(purchaseWeight * crop.getCostPerLitre());
+        crop.setNumberOfAquabotanicalBottles(numberOfCrop * crop.getWaterContentPerGram());
     }
 }
