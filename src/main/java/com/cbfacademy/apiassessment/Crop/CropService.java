@@ -19,6 +19,9 @@ public class CropService {
     public List<Crop> getCrops(){
         return cropRepository.findAll();
     }
+
+
+    # 
     public void addNewCrop(Crop crop) {
         Optional<Crop> cropByName = cropRepository
                 .findCropByName(crop.getName());
@@ -29,6 +32,7 @@ public class CropService {
         System.out.println(crop);
     }
 
+    // Delete operation of the CRUD operations to delete item by id from the data base
     public void deleteCrop(Long cropId) {
         boolean present = cropRepository.existsById(cropId);
         if (!present) {
@@ -40,7 +44,7 @@ public class CropService {
 
     }
 
-
+    // Algorithm to implement the computation of water yield from crop
     @Transactional
     public void updateCrop(Long cropId, Double costPerLitre, Double numberOfCrop, Double waterContentPerGram) {
         Crop crop = cropRepository.findById(cropId).orElseThrow(() -> new IllegalStateException(
