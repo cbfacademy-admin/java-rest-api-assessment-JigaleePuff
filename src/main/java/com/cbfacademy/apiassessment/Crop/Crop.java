@@ -1,51 +1,45 @@
 package com.cbfacademy.apiassessment.Crop;
 
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
 
 @Entity
 @Table
 public class Crop {
     @Id
-    @SequenceGenerator(
-            name = "crop_sequence",
-            sequenceName = "crop_sequence",
-            allocationSize = 1
-    )
-
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "crop_sequence"
-    )
+    @SequenceGenerator(name = "crop_sequence", sequenceName = "crop_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "crop_sequence")
     private Long id;
     private String name;
     private Double waterContentPerGram;
-    private Double costPerLitre;
-
-    @Transient
-    private Double cost;
     private Double numberOfAquabotanicalBottles;
+    private Double numberOfCrop;
+    private String siteName;
 
-    //    Null Constructor
-    public Crop() {
+
+
+    // Null Constructor
+    public Crop(String string, String string2, double d) {
     }
 
-//    Constructors
+    // Constructors
     public Crop(Long id,
-                String name,
-                Double waterContentPerGram,
-                Double costPerLitre) {
+            String name,
+            Double waterContentPerGram) {
         this.id = id;
         this.name = name;
         this.waterContentPerGram = waterContentPerGram;
-        this.costPerLitre = costPerLitre;
+
     }
 
-    public Crop(String name, Double waterContentPerGram,
-                Double costPerLitre) {
+    public Crop(String name, Double waterContentPerGram, Double setNumberOfAquabotanicalBottles) {
         this.name = name;
         this.waterContentPerGram = waterContentPerGram;
-        this.costPerLitre = costPerLitre;
+        this.numberOfAquabotanicalBottles = setNumberOfAquabotanicalBottles;
+
+    }
+
+    public Crop(String string, Object object) {
     }
 
     public Long getId() {
@@ -64,6 +58,38 @@ public class Crop {
         this.name = name;
     }
 
+    public void setsiteName(String siteName) {
+        this.siteName = siteName;
+    }
+
+    public String getsiteName(){
+        return siteName;
+        
+    }
+
+      // Add this method to get site name by crop name
+
+      public String getSiteNameByCropName(String cropName) {
+        // Assuming you have some logic to map crop names to site names
+        if ("Tomatoes".equalsIgnoreCase(cropName)) {
+            return "Your Site Name for Tomatoes";
+        } else if ("YourOtherCrop".equalsIgnoreCase(cropName)) {
+            return "Your Site Name for YourOtherCrop";
+        } else {
+            // Handle other cases or throw an exception
+            throw new IllegalArgumentException("Unknown crop name: " + cropName);
+        }
+    }
+
+
+    public void setNumberOfCrop(Double numberOfCrop) {
+        this.numberOfCrop = numberOfCrop;
+    }
+
+    public void getNumberOfCrop(Double numberOfCrop) {
+        this.numberOfCrop = numberOfCrop;
+    }
+
     public Double getWaterContentPerGram() {
         return waterContentPerGram;
     }
@@ -72,25 +98,12 @@ public class Crop {
         this.waterContentPerGram = waterContentPerGram;
     }
 
-    public Double getCostPerLitre() {
-        return costPerLitre;
-    }
-
-    public void setCostPerLitre(Double costPerLitre) {
-        this.costPerLitre = costPerLitre;
-    }
-
-    public Double getCost(){
-//        return waterContentPerGram * costPerLitre;
-        return getWaterContentPerGram() * getCostPerLitre();
-    }
-
-    public Double getnumberOfAquabotanicalBottles(){
+    public Double getnumberOfAquabotanicalBottles() {
         return numberOfAquabotanicalBottles;
     }
 
     public void setNumberOfAquabotanicalBottles(Double numberOfAquabotanicalBottles) {
-        this.numberOfAquabotanicalBottles =  numberOfAquabotanicalBottles;
+        this.numberOfAquabotanicalBottles = numberOfAquabotanicalBottles;
     }
 
     @Override
@@ -99,7 +112,17 @@ public class Crop {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", waterContentPerGram=" + waterContentPerGram +
-                ", costPerLitre=" + costPerLitre +
                 '}';
     }
+
+
+
+    public Object getFarm() {
+        return null;
+    }
+
+    public Object getnumberOfCrop() {
+        return null;
+    }
+
 }

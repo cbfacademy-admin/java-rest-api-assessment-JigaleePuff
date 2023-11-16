@@ -1,6 +1,6 @@
 package com.cbfacademy.apiassessment;
 
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,10 +24,7 @@ class AppTests {
 	@Autowired
 	private TestRestTemplate restTemplate;
 
-	@BeforeEach
-	public void setUp() throws Exception {
-		this.base = new URL("http://localhost:" + port + "/greeting");
-	}
+
 
 	@Test
 	@Description("/greeting endpoint returns expected response for default name")

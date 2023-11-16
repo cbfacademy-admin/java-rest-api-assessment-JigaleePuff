@@ -21,8 +21,9 @@ public class CropService {
     }
 
 
-    # 
-    public void addNewCrop(Crop crop) {
+    // This method handles the exceptions of entering a crop name that is already one of the 3 farms
+
+    public void selectCrop(Crop crop) {
         Optional<Crop> cropByName = cropRepository
                 .findCropByName(crop.getName());
         if (cropByName.isPresent()){
@@ -33,6 +34,7 @@ public class CropService {
     }
 
     // Delete operation of the CRUD operations to delete item by id from the data base
+
     public void deleteCrop(Long cropId) {
         boolean present = cropRepository.existsById(cropId);
         if (!present) {
@@ -41,12 +43,21 @@ public class CropService {
             );
         }
         cropRepository.deleteById(cropId);
+    }
+// this method you will be able to call the Crop name by its site name and vice versa
+    
 
+
+
+    public List<Crop> getCropsBySiteName(String siteName) {
+        return cropRepository.findCropsBySiteName(siteName);
     }
 
-    // Algorithm to implement the computation of water yield from crop
+
+    // Algorithm to implement the computation of water yield from crop to bottles of water
+    
     @Transactional
-    public void updateCrop(Long cropId, Double costPerLitre, Double numberOfCrop, Double waterContentPerGram) {
+    public void updateCrop(Long cropId, Double numberOfCrop, Double waterContentPerGram) {
         Crop crop = cropRepository.findById(cropId).orElseThrow(() -> new IllegalStateException(
                 "Crop with the Id " + cropId + "not in database"
         ));
@@ -56,11 +67,13 @@ public class CropService {
             crop.setWaterContentPerGram(waterContentPerGram);
         }
 
-        if (costPerLitre != null &&
-                !Objects.equals(crop.getCostPerLitre(), costPerLitre)){
-            crop.setCostPerLitre(costPerLitre);
+        if (numberOfCrop != null &&
+                !Objects.equals(crop.getnumberOfCrop(), cropId)){
+            crop.getnumberOfCrop();
         }
 
         crop.setNumberOfAquabotanicalBottles(numberOfCrop * crop.getWaterContentPerGram());
+    }
+    public void addNewCrop(Crop crop) {
     }
 }

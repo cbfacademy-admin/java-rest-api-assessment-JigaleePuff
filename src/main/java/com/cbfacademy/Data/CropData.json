@@ -1,21 +1,26 @@
 [{
     "name": "Sugar Cane",
-    "waterContentPerGram": 0.7,
-    "costPerLitre": 1.99
+    "waterContentPerGram": 0.7
+ 
 }
 ,
 {
  
    "name": "Carrots",
-   "waterContentPerGram":3.2,
-   "costPerLitre":1.99
+   "waterContentPerGram":3.2
+   
 }
 ,
   {
     "name": "Tomato",
-    "waterContentPerGram":3.2,
-    "costPerLitre":1.99
+    "waterContentPerGram":3.2
+
   }
- 
+ ,
+  {
+    "cropType": "Apples",
+    "waterContentPerGram": 4.8
+  }
 ]
-  
+
+

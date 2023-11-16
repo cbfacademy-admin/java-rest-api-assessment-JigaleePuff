@@ -18,18 +18,23 @@ public class CropConfig {
         return args -> {
             Crop orange = new Crop(
                     "Orange",
-                    3.2d,
-                    1.99d
+                    3.2,
+                    1.99
             );
 
             Crop apple = new Crop(
                     "Apple",
-                    1.3d,
-                    1.49d
+                    1.3,
+                    1.49
+            );
+            Crop tomato = new Crop(
+                    "tomato",
+                    1.3,
+                    1.49
             );
 
             repository.saveAll(
-                    List.of(orange, apple)
+                    List.of(orange, apple, tomato)
             );
         };
     }
